@@ -1,13 +1,14 @@
-# Single Cell HiC Data Enhancemen
+# Single Cell HiC Data Enhancement
 Single cell 3D genome modeling tools developed in the Bioinformatics and Machine Learning Lab
 
 <h1 align="center">ScHiCedsr</h1>
 
 ![github_fig](https://user-images.githubusercontent.com/98677544/209075059-a7aca34b-5ee3-4857-a512-5f747da8b451.png)
+
 ## Description
 The directory contains the code used to run the experiments and our own models for the paper
 
-##Developer:
+## Developer:
 
 ```
 Yanli Wang
@@ -15,7 +16,7 @@ Deparment of Computer Science
 Email yw7bh@missouri.edu
 ```
 
-##Contact:
+## Contact:
 
 ```
 Jianlin (Jack) Cheng, PhD
