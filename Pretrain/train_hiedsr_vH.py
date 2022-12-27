@@ -10,7 +10,7 @@ import torch.optim as optim
 from ProcessData.PrepareData_tensorH import GSE130711Module
 from torch.utils.tensorboard import SummaryWriter
 
-from Models.Hiedsr_ganT import Generator, Discriminator  # note the import should be carefull
+from Models.Hiedsr_gan import Generator, Discriminator  # note the import should be carefull
 from Utils.loss.Hiedsr_loss import GeneratorLoss as G1_loss
 from Utils.loss.Hiedsrgan_loss import GeneratorLoss as G2_loss
 
@@ -19,7 +19,7 @@ from math import log10
 
 
 class hiedsr(object):
-    def __init__(self, Gan = True, epoch = 250, batch_s = 1, cellN = 1, percentage = 0.75):
+    def __init__(self, Gan = True, epoch = 250, batch_s = 1, cellN = 1, celline = 'Human', percentage = 0.75):
 
         self.epochs = epoch
         self.Gan = Gan
@@ -39,7 +39,7 @@ class hiedsr(object):
 
         # out_dir: directory storing checkpoint files and parameters for saving to the our_dir
 
-        self.cell_line = 'HumanT16_'  #note: test here should pay attention
+        self.cell_line = celline  #note: test here should pay attention
         self.cell_no = cellN
         ratio = "Downsample_"+str(percentage)
         ratiot = ratio + '_' + self.cell_line + str(self.cell_no)
