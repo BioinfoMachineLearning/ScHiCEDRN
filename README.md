@@ -7,7 +7,7 @@ Single cell 3D genome modeling tools developed in the Bioinformatics and Machine
   src="./show.jpg"
   alt="The method used in our paper"
   title="ScHiCedsr and ScHiCedsrgan"
-  style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; max-width: 300px">
+  style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; max-width: 150px">
 
 
 ## Description
