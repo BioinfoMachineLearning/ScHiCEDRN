@@ -11,7 +11,7 @@ if __name__ == "__main__":
     parser.add_argument('--batch_size', type = int, default=64)
     parser.add_argument('--celln', type = int, default=1, help='The cell number of the cell-line you want to train')
     parser.add_argument('--celline', type = str, default='Human')
-    parser.add_argument('--percent', type = float, default='0.75', help = 'The down-sampling ratio for the raw input dataset, the value should be equal or larger than 0.02 but nt larger than 1.0')
+    parser.add_argument('--percent', type = float, default='0.75', help = 'The down-sampling ratio for the raw input dataset, the value should be equal or larger than 0.02 but not larger than 1.0')
     args = parser.parse_args()
 
 
