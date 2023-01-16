@@ -1,4 +1,7 @@
 import os
+import sys
+sys.path.append(".")
+sys.path.append("../")
 import time
 import numpy as np
 from tqdm import tqdm
@@ -10,7 +13,7 @@ import torch.optim as optim
 from ProcessData.PrepareData_tensor import GSE131811Module
 from torch.utils.tensorboard import SummaryWriter
 
-from Models.Hiedsr_gan import Generator, Discriminator
+from Models.schicedrn_gan import Generator, Discriminator
 from Utils.loss.Hiedsr_loss import GeneratorLoss as G1_loss
 from Utils.loss.Hiedsrgan_loss import GeneratorLoss as G2_loss
 
@@ -19,13 +22,13 @@ from math import log10
 
 
 class hiedsr(object):
-    def __init__(self, Gan = True, epoch = 250, batch_s = 1, cellN = 1, percentage = 0.75):
+    def __init__(self, Gan = True, epoch = 250, percentage = 0.75):
 
         self.epochs = epoch
         self.Gan = Gan
 
         # whether using GPU for training
-        device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+        device = torch.device('cuda:0' if torch.cuda.is_available( ) else 'cpu')
         self.device = device
 
         # load the network for different models
@@ -38,13 +41,9 @@ class hiedsr(object):
             subprocess.run("mkdir -p " + root_dir, shell = True)
 
         # out_dir: directory storing checkpoint files and parameters for saving to the our_dir
-
-        self.cell_line = 'Dros_cell'
-        self.cell_no = cellN
         ratio = "Downsample_"+str(percentage)
-        ratiot = ratio + '_' + self.cell_line + str(self.cell_no)
-        self.out_dir = os.path.join(root_dir, ratiot)  # for weights and bias
-        self.out_dirM = os.path.join(root_dir, ratiot, "metrics")  # for metrics
+        self.out_dir = os.path.join(root_dir, ratio)
+        self.out_dirM = os.path.join(root_dir, "metrics")
         os.makedirs(self.out_dir, exist_ok = True)  # makedirs will make all the directories on the path if not exist.
         os.makedirs(self.out_dirM, exist_ok = True)
 
@@ -53,12 +52,12 @@ class hiedsr(object):
         self.res = '40kb'
         self.chunk = 40
         self.stride = 40
-        #self.cell_line = 'Dros_cell'
-        #self.cell_no = 1
+        self.cell_line = 'Dros_cell'
+        self.cell_no = 1
         self.runs = self.cell_line+str(self.cell_no)+'_'+str(percentage)
 
         # prepare training and valid dataset
-        DataModule = GSE131811Module(batch_size = batch_s, cell_No = cellN, percent = percentage)
+        DataModule = GSE131811Module(batch_size = 1, percent = percentage)
         DataModule.prepare_data()
         DataModule.setup(stage = 'fit')
 
@@ -211,7 +210,7 @@ class hiedsr(object):
                     print(f'Now, Best ssim is {best_ssim:.6f}')
                     best_ckpt_file = f'bestg_{self.res}_c{self.chunk}_s{self.stride}_{self.cell_line}{self.cell_no}_hiedsrgan.pytorch'
                     torch.save(self.netG.state_dict(), os.path.join(self.out_dir, best_ckpt_file))
-            final_ckpt_g = f'finalg_{self.res}_c{self.chunk}_s{self.stride}_{self.cell_line}{self.cell_no}_hiedsrgan.pytorch'
+            final_ckpt_g = f'{self.datestr}_finalg_{self.res}_c{self.chunk}_s{self.stride}_{self.cell_line}{self.cell_no}_hiedsrgan.pytorch'
             torch.save(self.netG.state_dict(), os.path.join(self.out_dir, final_ckpt_g))
 
             ######### Uncomment to track scores across epochs #########
@@ -267,7 +266,7 @@ class hiedsr(object):
                     z = data.to(self.device)
                     fake_img = self.netG(z)
 
-                    self.netG.zero_grad()
+                    self.netG.zero_grad( )
                     _, _, _, loss = criterion(fake_img, real_img)
                     loss.backward()
                     optimizer.step()
@@ -278,7 +277,7 @@ class hiedsr(object):
                 train_gloss = run_result['g_loss'] / run_result['nsamples']
                 # train_gscore = run_result['g_score'] / run_result['nsamples']
 
-                valid_result = {'g_loss': 0, 'g_score': 0, 'mse': 0, 'ssims': 0, 'psnr': 0, 'ssim': 0, 'nsamples': 0}
+                valid_result = {'g_loss': 0, 'mse': 0, 'ssims': 0, 'psnr': 0, 'ssim': 0, 'nsamples': 0}
                 self.netG.eval()
 
                 batch_ssims = []
@@ -319,7 +318,7 @@ class hiedsr(object):
                 mae_scores.append((sum(batch_maes) / len(batch_maes)))
 
                 valid_gloss = valid_result['g_loss'] / valid_result['nsamples']
-                #valid_gscore = valid_result['g_score'] / valid_result['nsamples']
+                # valid_gscore = valid_result['g_score'] / valid_result['nsamples']
 
                 Nssim = sum(batch_ssims) / len(batch_ssims)
                 Npsnr = sum(batch_psnrs) / len(batch_psnrs)
@@ -339,7 +338,7 @@ class hiedsr(object):
                     best_ckpt_file = f'bestg_{self.res}_c{self.chunk}_s{self.stride}_{self.cell_line}{self.cell_no}_hiedsr.pytorch'
                     torch.save(self.netG.state_dict( ), os.path.join(self.out_dir, best_ckpt_file))
 
-            final_ckpt_g = f'finalg_{self.res}_c{self.chunk}_s{self.stride}_{self.cell_line}{self.cell_no}_hiedsr.pytorch'
+            final_ckpt_g = f'{self.datestr}_finalg_{self.res}_c{self.chunk}_s{self.stride}_{self.cell_line}{self.cell_no}_hiedsr.pytorch'
             torch.save(self.netG.state_dict(), os.path.join(self.out_dir, final_ckpt_g))
 
             ######### Uncomment to track scores across epochs #########
@@ -361,10 +360,11 @@ class hiedsr(object):
 
 
 if __name__ == "__main__":
-    train_model = hiedsr(Gan = False, epoch = 400, batch_s = 1, cellN = 1, percentage = 0.45)
+    train_model = hiedsr(Gan = False, epoch = 400, percentage=0.1)
     train_model.fit_model()
     print("\n\nTraining hiedsr is done!!!\n")
 
-    train_model = hiedsr(Gan = True, epoch = 400, batch_s = 1, cellN = 1, percentage = 0.45)
+    train_model = hiedsr(Gan=True, epoch=400, percentage=0.1)
     train_model.fit_model()
     print("\n\nTraining hiedsrgan is done!!!\n")
+
