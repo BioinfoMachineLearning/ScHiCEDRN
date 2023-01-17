@@ -18,7 +18,7 @@ The directory contains the code used to run the experiments and our own models f
 ```
 Yanli Wang
 Deparment of Computer Science
-Email yw7bh@missouri.edu
+Email: yw7bh@missouri.edu
 ```
 
 ## Contact
