@@ -1,4 +1,4 @@
-name: ScHiCedsr
+name: ScHiCEDRN
 channels:
   - pytorch
   - schrodinger
@@ -252,5 +252,5 @@ dependencies:
     - test-tube==0.7.5
     - tmscoring==0.4.post0
     - toolz==0.12.0 
-prefix: /home/yw7bh/anaconda3/envs/ScHiCedsr
+prefix: /home/yw7bh/anaconda3/envs/ScHiCEDRN
 
