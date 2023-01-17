@@ -1,7 +1,7 @@
 # Single Cell HiC Data Enhancement
 Single cell 3D genome modeling tools developed in the Bioinformatics and Machine Learning Lab
 
-<h1 align="center">ScHiCedsr</h1>
+<h1 align="center">ScHiCEDRN</h1>
 
 <img
   src="./showing.jpg"
