@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import os
 import sys
+sys.path.append(".")
+sys.path.append("../")
 from Utils import utils as ut
 import pdb
 import subprocess

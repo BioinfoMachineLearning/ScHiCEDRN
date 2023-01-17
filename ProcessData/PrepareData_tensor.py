@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import os
 import sys
+sys.path.append(".")
+sys.path.append("../")
 from Utils import utils as ut
 import pdb
 import subprocess
@@ -176,7 +178,7 @@ class GSE131811Module(pl.LightningDataModule):
                  res = 40000,
                  percent = 0.75,
                  piece_size = 40,
-                 cell_line = 'Drosa',
+                 cell_line = 'Dros',
                  cell_No = 1
                  ): #64 is used for unet_model
         super( ).__init__( )
@@ -196,7 +198,7 @@ class GSE131811Module(pl.LightningDataModule):
         outdir = self.dirname+"/Constraints"
 
         #filepath = '../../Datasets/Drosophila/GSM3820057_Cell'+str(self.cellNo)+'.10000.mcool'
-        file_inter = glob.glob('../../Datasets/Drosophila/' + r'*_Cell' + str(self.cellNo) + '.10000.mcool')
+        file_inter = glob.glob('../Datasets/Drosophila/' + 'cell' + str(self.cellNo)+'_'+ r'*.mcool')
         filepath = file_inter[0]
         AllRes = cooler.fileops.list_coolers(filepath)
         print(AllRes)

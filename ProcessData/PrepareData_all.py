@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import os
 import sys
+sys.path.append(".")
+sys.path.append("../")
 from Utils import utils as ut
 import pdb
 import subprocess
@@ -253,7 +255,7 @@ class GSE131811Module(pl.LightningDataModule):
             subprocess.run("mkdir -p "+self.dirname+"/Constraints", shell = True)
 
         outdir = self.dirname+"/Constraints"
-        filepath = '../../Datasets/Drosophila/GSM3820057_Cell'+str(self.cellNo)+'.10000.mcool'
+        filepath = '../Datasets/Drosophila/GSM3820057_Cell'+str(self.cellNo)+'.10000.mcool'
         AllRes = cooler.fileops.list_coolers(filepath)
         print(AllRes)
 
