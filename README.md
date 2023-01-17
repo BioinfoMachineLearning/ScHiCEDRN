@@ -80,7 +80,7 @@ cooler zoomify --balance filename.cool
 mv fiilename.mcool cell1_name.mcool
 # note: you can replace the numerical number as any interger you want, and change the 'name' as you want.
 ```
-## Running ScHiCedsr
+## Running ScHiCEDRN
 
 If you want to retrain your dataset, YOU can run ScHiCEDRN by the following command:
 
