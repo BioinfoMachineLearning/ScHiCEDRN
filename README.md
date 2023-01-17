@@ -4,7 +4,7 @@ Single cell 3D genome modeling tools developed in the Bioinformatics and Machine
 <h1 align="center">ScHiCedsr</h1>
 
 <img
-  src="./show.jpg"
+  src="./showing.jpg"
   alt="The method used in our paper"
   title="ScHiCedsr and ScHiCedsrgan"
   style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; max-width: 150px">
@@ -42,10 +42,10 @@ Pretrain: Scripts used to run experiments and to analyze experiemnt outputs
 Utils: Scripts used for loss function and analyze outputs 
 ```
 
-## Single cell Hic dataset used in the paper
+## Single cell HiC dataset used in the paper
 
 ```
-The Cooler file dataset for Human cells with GEO number GSE130711 can be get from https://salkinstitute.app.box.com/s/fp63a4j36m5k255dhje3zcj5kfuzkyj1
+The Cooler file dataset for Human cells with GEO number GSE130711 can be get from https://salkinstitute.app.box.com/s/fp63a4j36m5k255dhje3zcj5kfuzkyj1 or more detailed Human single-cell data at https://salkinstitute.app.box.com/s/fp63a4j36m5k255dhje3zcj5kfuzkyj1/folder/82405563291
 The Cooler file format dataset for Drosophila was obtained from GEO with code GSE131811 can be get from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131811 
 ```
 
@@ -77,10 +77,14 @@ Optional Parameters:
 -e, --epoch          How many epoches that you want to train.
 -b, --batch_size     The batch size you want to use in you model.
 -n, --celln          Cell number in the dataset you want to feed in you model.
--l, --celline        Which cell line you want to choose for your dataset.
+-l, --celline        Which cell line you want to choose for your dataset, default is 'Human'.
 -p, --percent        The downsampling ratio for the raw dataset, it should be equal or larger than 0.02 but not larger than 1.0, '1.0' means the input data without any downsampling. 
 ```
+## License
+This project is covered under the MIT License.
 
+## Reference
+Yanli Wang, Zhiye Guo, & Jianlin Cheng. ScHiCEDRN: Single-cell Hi-C data Enhance-ment with Deep Residual and Generative Adversarial Networks. (Submitted).
 
 
 
