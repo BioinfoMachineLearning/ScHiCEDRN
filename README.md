@@ -18,6 +18,8 @@ The directory contains the code used to run the experiments and our own models f
 ```
 Yanli Wang
 Deparment of Computer Science
+University of Missouri
+Columbia, MO 65211, USA
 Email: yw7bh@missouri.edu
 ```
 
@@ -35,11 +37,12 @@ Email: chengji@missouri.edu
 ## Content of Folders
 
 ```
-Model_Weights: Trained weights of all the models used in the paper
-Models: Pytorch implementation of models used in experiments
-ProcessData: The Raw Data, Data Loaders, and preprcoessing scripts
-Pretrain: Scripts used to run experiments and to analyze experiemnt outputs
-Utils: Scripts used for loss function and analyze outputs 
+Model_Weights: Trained weights of all the models used in the paper.
+Models: Pytorch implementation of models used in experiments.
+ProcessData: The Raw Data, Data Loaders, and preprcoessing scripts.
+Pretrain: Scripts used to run experiments and to analyze experiemnt outputs.
+TrainingYourData: Scripts used to training the data by yourself.
+Utils: Scripts used for loss function and analyze outputs.
 ```
 
 ## Single cell HiC dataset used in the paper
