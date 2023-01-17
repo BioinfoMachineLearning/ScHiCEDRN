@@ -6,7 +6,7 @@ import torch
 import os
 
 #Our models
-import Models.Hiedsr_ganT as hiedsr
+import Models.schicedrn_ganT as hiedsr
 #other models
 from Utils import stard_metrics as vm
 from ProcessData.PrepareData_tensor import GSE131811Module

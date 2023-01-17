@@ -1,10 +1,11 @@
 import sys
 sys.path.append(".")
+sys.path.append("../")
 import numpy as np
 
 #models need to be trained
 
-from Pretrain.train_hiedsr_v1 import hiedsr
+from Pretrain.train_schicedrn_v1 import hiedsr
 
 if __name__ == "__main__":
 

@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 import torch
 
 #Our models
-import Models.Hiedsr_gan as hiedsr
+import Models.schicedrn_gan as hiedsr
 #other models
 import Models.hicsr   as hicsr
 import Models.deephic as deephic
 import Models.hicplus as hicplus
-import Models.Unet_parts1 as unet
+import Models.Loopenhance_parts1 as unet
 
 from Utils import stard_metrics as vm
 from ProcessData.PrepareData_tensor import GSE131811Module

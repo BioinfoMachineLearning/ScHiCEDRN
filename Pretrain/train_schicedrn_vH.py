@@ -11,6 +11,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from ProcessData.PrepareData_tensorH import GSE130711Module
+from ProcessData.PrepareData_tensor import GSE131811Module
 from torch.utils.tensorboard import SummaryWriter
 
 from Models.schicedrn_gan import Generator, Discriminator  # note the import should be carefull
@@ -61,7 +62,10 @@ class hiedsr(object):
         self.runs = self.cell_line+str(self.cell_no)+'_'+str(percentage)
 
         # prepare training and valid dataset
-        DataModule = GSE130711Module(batch_size = batch_s, cell_No = cellN, percent = percentage)
+        if self.cell_line == 'Human':
+            DataModule = GSE130711Module(batch_size = batch_s, cell_No = cellN, percent = percentage)
+        elif self.cell_line == 'Dros':
+            DataModule = GSE131811Module(batch_size=batch_s, cell_No=cellN, percent=percentage)
         DataModule.prepare_data()
         DataModule.setup(stage = 'fit')
 

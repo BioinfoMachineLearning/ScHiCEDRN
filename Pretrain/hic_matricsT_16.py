@@ -14,12 +14,12 @@ from ProcessData.PrepareData_tensor import GSE131811Module
 from ProcessData.PrepareData_tensorH import GSE130711Module
 
 #Our models
-import Models.Hiedsr_ganT48 as hiedsr
+import Models.schicedrn_ganT48 as hiedsr
 #other models
 import Models.hicsr   as hicsr
 import Models.deephic as deephic
 import Models.hicplus as hicplus
-import Models.Unet_parts1 as unet
+import Models.Loopenhance_parts1 as unet
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 

@@ -16,7 +16,7 @@ from torch.utils.tensorboard import SummaryWriter
 from Models.schicedrn_ganT48 import Generator, Discriminator  # note the import should be carefull
 from Utils.loss.Hiedsr_loss import GeneratorLoss as G1_loss
 from Utils.loss.Hiedsrgan_loss import GeneratorLoss as G2_loss
-from Pretrain.train_hiedsr_vH import hiedsr as hiedsr16
+from Pretrain.train_schicedrn_vH import hiedsr as hiedsr16
 
 from Utils.loss.SSIM import ssim
 from math import log10

@@ -1,9 +1,10 @@
 import sys
 sys.path.append(".")
+sys.path.append("../")
 import numpy as np
 
 #models need to be trained
-from Pretrain.train_hiedsr_vH import hiedsr
+from Pretrain.train_schicedrn_vH import hiedsr
 if __name__ == "__main__":
 
     batch_size = 64

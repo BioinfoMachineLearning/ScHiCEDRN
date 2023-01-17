@@ -2,14 +2,14 @@ import sys
 sys.path.append(".")
 
 #our models
-import Models.Hiedsr_gan as hiedsr
+import Models.schicedrn_gan as hiedsr
 
 #other models
 import Models.hicplus as hicplus
 import Models.hicsr   as hicsr
 import Models.deephic as deephic
 
-import Models.Unet_parts1 as unet
+import Models.Loopenhance_parts1 as unet
 
 import os
 import tmscoring

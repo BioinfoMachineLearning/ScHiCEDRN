@@ -10,7 +10,7 @@ from Pretrain.train_schicedrn_vH import hiedsr
 if __name__ == "__main__":
 
     batch_size = 1
-    percenList = [0.75, 0.45, 0.1]
+    percenList = [0.75, 0.45, 0.1, 0.02]
     celln = 1
     for percen in percenList:
     #train on hiedsr
