@@ -56,17 +56,44 @@ The dependencies can be installed by the following command:
 
 ```
 # create conda environment
-conda env create -f ScHiCedsr.yml
+conda env create -f ScHiCEDRN.yml
 
 # active the environment
-conda active ScHiCedsr
+conda active ScHiCEDRN
 ```
-
+## Preparing datasets
+```
+# First step create folder for the datasets, the 'Datasets' folder should be at the same level as 'TrainingYourData' Folder 
+mkdir -p Datasets/Human
+# or
+mkdir -p Datasets/Drosophila 
+```
+```
+# Second download the dataset to Datasets/Human or Datasets/Drosophila the by the given link
+```
+```
+# Third check the download files' extension, if not .mcool extension, you should zoomify the files to get the resolution you want
+cooler zoomify --balance filename.cool
+```
+```
+# Fourth name the zoomified file to the customized name as bellow
+mv fiilename.mcool cell1_name.mcool
+# note: you can replace the numerical number as any interger you want, and change the 'name' as you want.
+```
 ## Running ScHiCedsr
 
-If you want to retrain your dataset, You can run ScHiCedsr by the following command:
+If you want to retrain your dataset, YOU can run ScHiCEDRN by the following command:
 
 ```
+# First step enter the following folder
+cd ./TrainingYourData
+```
+```
+# Second step check the envirment whetther it is active, if not active the envirment 
+conda activate ScHiCEDRN.yml
+```
+```
+# Third step run the training scripts
 python ScHiCedsr_train.py -g [boolean_value] -e [epoch_number] -b [batch_size] -n [cell_number] -l [cell_line] -p [percentage]
 ```
 
@@ -77,7 +104,7 @@ Optional Parameters:
 -e, --epoch          How many epoches that you want to train.
 -b, --batch_size     The batch size you want to use in you model.
 -n, --celln          Cell number in the dataset you want to feed in you model.
--l, --celline        Which cell line you want to choose for your dataset, default is 'Human'.
+-l, --celline        Which cell line you want to choose for your dataset, default is 'Human', you should choose one name in ['Human', 'Dros']
 -p, --percent        The downsampling ratio for the raw dataset, it should be equal or larger than 0.02 but not larger than 1.0, '1.0' means the input data without any downsampling. 
 ```
 ## License
