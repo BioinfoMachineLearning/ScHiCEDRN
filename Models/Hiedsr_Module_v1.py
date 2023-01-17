@@ -11,7 +11,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 from pytorch_lightning import Trainer
-from Models.Hiedsr_v1 import edsr
+from Models.schicedrn_v1 import edsr
 from Utils.loss import Hiedsr_loss as Hiss
 
 

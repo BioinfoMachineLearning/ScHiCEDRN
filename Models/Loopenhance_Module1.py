@@ -10,7 +10,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 from pytorch_lightning import Trainer
-from Models.Unet_parts1 import unetConv2, unetUp, init_weights
+from Models.Loopenhance_parts1 import unetConv2, unetUp, init_weights
 from Utils.loss import insulation as ins
 
 

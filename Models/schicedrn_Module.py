@@ -11,7 +11,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 from pytorch_lightning import Trainer
-from Models.Hiedsr_gan import Generator, Discriminator
+from Models.schicedrn_gan import Generator, Discriminator
 from Utils.loss import Hicarngan_loss as Hiss
 
 

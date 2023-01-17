@@ -5,13 +5,16 @@
 
 import pdb
 import numpy as np
+import sys
+sys.path.append('.')
+sys.path.append('../')
 import pytorch_lightning as pl
 import math
 import torch
 from torch import nn
 from torch.nn import functional as F
 from pytorch_lightning import Trainer
-from Models.Hiedsr import edsr
+from Models.schicedrn import edsr
 from Utils.loss import Hicarn_loss as Hiss
 
 
