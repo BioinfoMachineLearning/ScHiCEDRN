@@ -2,7 +2,7 @@
 import torch.nn as nn
 import torch.nn.functional as F
 from math import log10
-from Models.Hiedsr_gan import Generator  # here should be modified
+from Models.schicedrn_gan import Generator  # here should be modified
 from scipy.stats import pearsonr
 from scipy.stats import spearmanr
 import sys

@@ -90,7 +90,7 @@ def compute_reproducibility(m1_csr, m2_csr, transition, tmax=3, tmin=3):
     else:
         auc = metrics.auc(range(len(ts)), scores) / denom
 
-    reproducibility = abs(1 - auc)
+    reproducibility = (1 - auc)
 
     #gds_hic = open("GenomeDISCO.txt", 'a')
     #gds_hic.write("scores_0:\t"+str(scores[0])+"\t"+"denom:\t"+str(denom)+"\t"+"auc:\t"+str(auc)+"\t"+"gds:\t"+str(reproducibility)+"\n")

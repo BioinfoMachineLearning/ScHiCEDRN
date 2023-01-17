@@ -5,7 +5,7 @@ import numpy as np
 import torch
 
 class computeInsulation(torch.nn.Module):
-    def __init__(self, window_radius=8, deriv_size=8):
+    def __init__(self, window_radius=10, deriv_size=10):
         super(computeInsulation, self).__init__()
         self.window_radius = window_radius
         self.deriv_size  = deriv_size
