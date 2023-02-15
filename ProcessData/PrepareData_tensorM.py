@@ -381,10 +381,10 @@ class GSE130711Module(pl.LightningDataModule):
         return DataLoader(self.train_set, self.batch_size, num_workers = 12, drop_last=True)
 
     def val_dataloader(self):
-        return DataLoader(self.val_set, self.batch_size, num_workers = 12, drop_last=True)
+        return DataLoader(self.val_set, self.batch_size, num_workers = 12, drop_last=False)
 
     def test_dataloader(self):
-        return DataLoader(self.test_set, self.batch_size, num_workers = 12, drop_last=True)
+        return DataLoader(self.test_set, self.batch_size, num_workers = 12, drop_last=False)
 
 
 if __name__ == '__main__':
