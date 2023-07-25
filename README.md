@@ -16,7 +16,7 @@ The directory contains the code used to run the experiments and our own models f
 
 ## Content of Folders
 
-```bash
+```
 Model_Weights: Trained weights of all the models used in the paper.
 Models: Pytorch implementation of models used in experiments.
 ProcessData: The Raw Data, Data Loaders, and preprcoessing scripts.
@@ -27,7 +27,7 @@ Utils: Scripts used for loss function and analyze outputs.
 
 ## Single cell HiC dataset used in the paper
 
-```bash
+```
 The Cooler file dataset for Human cells with GEO number GSE130711 can be get from https://salkinstitute.app.box.com/s/fp63a4j36m5k255dhje3zcj5kfuzkyj1 or more detailed Human single-cell data at https://salkinstitute.app.box.com/s/fp63a4j36m5k255dhje3zcj5kfuzkyj1/folder/82405563291
 The Cooler file format dataset for Drosophila was obtained from GEO with code GSE131811 can be get from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131811 
 ```
